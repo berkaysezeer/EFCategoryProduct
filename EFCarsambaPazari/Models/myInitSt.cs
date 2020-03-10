@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace EFCarsambaPazari.Models
 {
-    public class myInitSt : DropCreateDatabaseIfModelChanges<BazaarContext>
+    public class myInitSt : DropCreateDatabaseAlways<BazaarContext>
     {
         protected override void Seed(BazaarContext context)
         {

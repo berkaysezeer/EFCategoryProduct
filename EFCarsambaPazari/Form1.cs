@@ -39,6 +39,11 @@ namespace EFCarsambaPazari
 
                 lblProductsin.Text = "Products in " + selectedCat.CategoryName;
             }
+            else
+            {
+                lstCategoryProducts.DataSource = null;
+                lblProductsin.Text = "No category selected";
+            }
         }
 
         private void btnCategoryAdd_Click(object sender, EventArgs e)
@@ -84,6 +89,9 @@ namespace EFCarsambaPazari
                 db.SaveChanges();
                 ListCategories();
                 ListProducts();
+
+                //kategori kalmadiginda lstcategories selectedindexchanged eventi tetiklenmiyor (bugfix)
+                if (lstCategories.Items.Count == 0) ListCategoryProducts(); //bu metodu tetikler
             }
         }
 
